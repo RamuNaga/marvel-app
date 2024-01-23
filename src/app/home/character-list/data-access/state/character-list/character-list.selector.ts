@@ -24,12 +24,6 @@ export const getCharacterId = createSelector(
   getCharacters,
   getCurrentRoute,
   (characters, route: RouterStateUrl) => {
-    // console.log(
-    //   'route.paramsid===',
-    //   route.params['id'],
-    //   characters.find((character) => character.id == route.params['id'])
-    // );
-
     return (
       characters &&
       characters.find((character) => character.id == route.params['id'])

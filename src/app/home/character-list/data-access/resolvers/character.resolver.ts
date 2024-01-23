@@ -4,6 +4,5 @@ export const characterResolver: ResolveFn<boolean> = (
   route: ActivatedRouteSnapshot,
   state
 ) => {
-  console.log('id====', route.params['id']);
   return true;
 };

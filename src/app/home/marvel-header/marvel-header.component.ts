@@ -56,7 +56,6 @@ export class MarvelHeaderComponent implements OnInit {
       ?.valueChanges.pipe(
         debounceTime(1000),
         tap((searchstr) => {
-          console.log('searchstr', searchstr);
           this.characterService.sendSearchString(searchstr.toLowerCase());
         })
       )
