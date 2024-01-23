@@ -1,0 +1,15 @@
+<mat-card
+  [routerLink]="['character', character?.id]"
+  routerLinkActive="active"
+  [routerLinkActiveOptions]="{ exact: true }"
+>
+  <mat-card-content>
+    <img
+      mat-card-image
+      class="character-img"
+      [src]="imgurl"
+      alt="angular log"
+    />
+    <p>{{ character?.name }}</p>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,56 @@
+:host {
+  height: 100%;
+}
+
+.character {
+  padding: 10px;
+  margin-left: 60px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+.character-thumbnail {
+  width: 250px;
+  height: 250px;
+}
+.accordian {
+  width: 100%;
+  margin-bottom: 4px;
+}
+mat-accordion {
+  margin-bottom: 2px;
+}
+mat-panel-title {
+  font-weight: 600;
+}
+mat-expansion-panel {
+  width: 96%;
+  margin-left: 65px;
+  margin-bottom: 4px;
+}
+.character-details-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: left;
+}
+
+.header-title {
+  margin-left: 70px;
+}
+
+.card {
+  width: 15%;
+  height: 150px;
+  text-overflow: ellipsis;
+  align-items: center;
+  justify-content: center;
+  background: #63dfb3;
+  margin: 5px;
+}
+.card-content {
+  text-overflow: ellipsis;
+}

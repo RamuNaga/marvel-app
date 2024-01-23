@@ -1,0 +1,15 @@
+<mat-toolbar>
+  <mat-icon [routerLink]="['character']">home</mat-icon>
+  <div class="search">
+    <form [formGroup]="searchForm" (ngSubmit)="onSearchSubmit()">
+      <span class="marvel-title">Marvel Characters</span>
+      <input
+        formControlName="searchvalue"
+        class="marvel-input"
+        type="text"
+        placeholder="search character"
+        matInput
+      />
+    </form>
+  </div>
+</mat-toolbar>

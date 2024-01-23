@@ -1,0 +1,18 @@
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #003839;
+}
+.marvel-title {
+  font-weight: 500;
+  color: white;
+}
+.marvel-input {
+  height: 30px;
+  width: 250px;
+  margin: 5px;
+}
+mat-icon {
+  color: white;
+}
