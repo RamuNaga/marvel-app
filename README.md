@@ -2,6 +2,53 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
 
+### Nmae: Ramu Vuppanapalli
+
+### Marvel Application
+
+### This project is developed in latest Angular v17, rxjs and NGRX
+
+### clone url : https://github.com/RamuNaga/marvel-app.git
+
+#### Standalone components
+
+I have used only standalone components. You won't see any modules in the app.
+
+## Functionality overview
+
+**General functionality:**
+Display a list of all characters in the home page.
+The user can click on a character image and go to a view with more details about the
+record.
+Include the following details of each character:
+a. name, description, image;
+b. a list of stories, events and/or series that the character appears in.
+c. Include a free text search on the main page that filters the characters by name,
+without relying on the Marvel API
+d. user click on edit icon in each character, open model popup to edit the name and image.
+
+**The general page breakdown looks like this:**
+
+- Home page (URL: /characters )
+
+  - List of Characters both mock data and Marvel API.
+
+- Sign up/Login pages (URL: /login, /signup )
+
+- Character page (URL: /characters/character/1011334 )
+
+**environment**
+In the environment.ts we need to update the following keys:
+
+- api_key: '',
+- api_url: 'http://gateway.marvel.com',
+- public_key: '',
+- private_key: '',
+
+## Commands
+
+`npm install` commands helps to install dependencies, devdependencies for the Marvel Application
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
