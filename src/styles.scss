@@ -45,6 +45,10 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   overflow-y: hidden;
 }
+mat-card:hover {
+  background: #187777;
+  color: white;
+}
 
 @media (max-width: 771px) {
   .homeContainer {

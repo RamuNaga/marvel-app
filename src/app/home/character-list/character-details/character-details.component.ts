@@ -56,6 +56,7 @@ export class CharacterDetailsComponent implements OnInit {
         this.eventItems = character?.comics?.items as unknown as ComicSummary[];
         this.storyItems = character?.stories
           ?.items as unknown as StorySummary[];
+        this.comicItems = character?.comics?.items as unknown as ComicSummary[];
         this.seriesItems = character?.series
           ?.items as unknown as SeriesSummary[];
       })

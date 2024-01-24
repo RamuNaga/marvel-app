@@ -51,6 +51,11 @@ mat-expansion-panel {
   background: #63dfb3;
   margin: 5px;
 }
+.card:hover {
+  background: #e62429;
+  color: white;
+  cursor: pointer;
+}
 .card-content {
   text-overflow: ellipsis;
 }
