@@ -17,6 +17,7 @@ import { Appstate } from '../../../store/app.state';
 import { Store } from '@ngrx/store';
 import { getCharacterId } from '../data-access/state/character-list/character-list.selector';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { isPublicKeyExist } from '../../../../core/util/time-stamp';
 
 @Component({
   selector: 'app-character-details',
@@ -41,6 +42,7 @@ export class CharacterDetailsComponent implements OnInit {
   seriesItems: SeriesSummary[] = [];
 
   private readonly store = inject(Store<Appstate>);
+  private route = inject(ActivatedRoute);
 
   /**
    *  Data fetch from store
@@ -53,6 +55,7 @@ export class CharacterDetailsComponent implements OnInit {
     .pipe(
       tap((character) => {
         this.imgUrl = getImageUrl(character as Character);
+        this.character = character;
         this.eventItems = character?.comics?.items as unknown as ComicSummary[];
         this.storyItems = character?.stories
           ?.items as unknown as StorySummary[];
@@ -64,18 +67,24 @@ export class CharacterDetailsComponent implements OnInit {
     .subscribe();
 
   /**
-   * Mock data logic to populate 
-   * this.route.params
+   * isPublicKeyExist is not exist, load Mock data logic to populate 
+    this.route.params
     .pipe(switchMap((params) => (this.id = params['id'])))
      .subscribe();
     this.getCharacterData();
    */
 
   ngOnInit(): void {
-    // this.route.params
-    //   .pipe(switchMap((params) => (this.id = params['id'])))
-    //   .subscribe();
-    // this.getCharacterData();
+    if (!isPublicKeyExist()) {
+      this.loadMockData();
+    }
+  }
+
+  loadMockData() {
+    this.route.params
+      .pipe(switchMap((params) => (this.id = params['id'])))
+      .subscribe();
+    this.getCharacterData();
   }
 
   getCharacterData() {

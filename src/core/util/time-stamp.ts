@@ -1,4 +1,5 @@
 import { Md5 } from 'ts-md5';
+import { environment } from '../../environments/environment';
 export const getTimeStamp = () => {
   return new Date().valueOf();
 };
@@ -11,4 +12,8 @@ export function getHash(
 ) {
   let timekey = timestamp + private_key + public_key;
   return Md5.hashStr(timekey);
+}
+
+export function isPublicKeyExist(): boolean {
+  return environment.public_key ? true : false;
 }

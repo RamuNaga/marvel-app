@@ -18,11 +18,18 @@ import { isLoading } from '../../store/shared/shared.selector';
 import { LoaderComponent } from '../../../core/components/loader/loader.component';
 import { Observable, Subscription, tap } from 'rxjs';
 import { CharacterService } from './data-access/services/character.service';
+import { CharacterDialogComponent } from './character-dialog/character-dialog.component';
+import { isPublicKeyExist } from '../../../core/util/time-stamp';
 
 @Component({
   selector: 'app-character-list',
   standalone: true,
-  imports: [CharacterComponent, AsyncPipe, LoaderComponent],
+  imports: [
+    CharacterComponent,
+    AsyncPipe,
+    LoaderComponent,
+    CharacterDialogComponent,
+  ],
   templateUrl: './character-list.component.html',
   styleUrl: './character-list.component.scss',
 })
@@ -48,14 +55,12 @@ export class CharacterListComponent implements OnInit, OnDestroy {
     .pipe(
       tap((count) => {
         if (count <= 0) {
-          this.getCharactersListFromApi();
-          //this.getCharactersData();
+          if (isPublicKeyExist()) this.getCharactersListFromApi();
+          else this.getCharactersData();
         }
       })
     )
     .subscribe();
-
-  constructor() {}
 
   ngOnInit(): void {
     this.$subs = this.characterService
@@ -64,7 +69,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
         this.characters = this.characters.filter((character) => {
           return character.name?.toLowerCase().includes(searchStr);
         });
-        if (searchStr.length == 0 || this.characters.length == 0) {
+        if (searchStr.length == 0 && this.characters.length == 0) {
           this.store
             .select(getCharacters)
             .subscribe((characters) => (this.characters = characters));

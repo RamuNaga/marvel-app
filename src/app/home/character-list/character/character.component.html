@@ -1,15 +1,17 @@
-<mat-card
-  [routerLink]="['character', character?.id]"
-  routerLinkActive="active"
-  [routerLinkActiveOptions]="{ exact: true }"
->
+<mat-card *ngIf="character">
   <mat-card-content>
     <img
+      [routerLink]="['character', character.id]"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
       mat-card-image
       class="character-img"
       [src]="imgurl"
       alt="angular log"
     />
-    <p>{{ character?.name }}</p>
+    <p>{{ character.name }}</p>
   </mat-card-content>
+  <mat-card-actions>
+    <mat-icon matToolTip="edit" (click)="editCourse(character)">edit</mat-icon>
+  </mat-card-actions>
 </mat-card>

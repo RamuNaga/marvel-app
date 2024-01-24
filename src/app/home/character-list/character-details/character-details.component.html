@@ -1,5 +1,5 @@
 <!-- //$ | async as character -->
-<ng-container *ngIf="character$ | async as character">
+<ng-container *ngIf="character">
   <ng-container>
     <div class="character">
       <h2>{{ character.name }}</h2>
@@ -14,7 +14,7 @@
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Stories: {{ character?.stories?.returned }}
+              Stories: {{ character.stories.returned }}
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div class="character-details-container">
@@ -37,7 +37,7 @@
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Series: {{ character?.series?.returned }}
+              Series: {{ character.series.returned }}
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div class="character-details-container">
@@ -58,7 +58,7 @@
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Comics: {{ character?.comics?.returned }}
+              Comics: {{ character.comics.returned }}
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div class="character-details-container">
@@ -79,7 +79,7 @@
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Events: {{ character?.events?.returned }}
+              Events: {{ character.events.returned }}
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div class="character-details-container">

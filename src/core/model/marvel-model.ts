@@ -9,11 +9,11 @@ export interface CharacterDataWrapperResponse {
 }
 export interface Character {
   id: number;
-  name?: string;
-  description?: string;
-  modified?: string;
+  name: string;
+  description: string;
+  modified: string;
   resourceURI?: string;
-  urls?: Url[];
+  urls: Url[];
   thumbnail: Image;
   comics: Comics;
   stories: StoryList;

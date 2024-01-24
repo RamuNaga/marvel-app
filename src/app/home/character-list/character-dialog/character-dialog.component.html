@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Character: {{ name }}</h2>
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field>
+    <input matInput placeholder="Character name" formControlName="name" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Character path" formControlName="path" />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Character extension"
+      formControlName="extension"
+    />
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button (click)="close()">Close</button>
+  <button mat-raised-button color="primary" (click)="save()">Save</button>
+</mat-dialog-actions>
