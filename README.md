@@ -2,9 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
 
-### Nmae: Ramu Vuppanapalli
+### Name: Ramu Vuppanapalli
 
-### Marvel Application
+### ProjectName: Marvel Application
 
 ### This project is developed in latest Angular v17, rxjs and NGRX
 
