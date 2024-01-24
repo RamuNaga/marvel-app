@@ -34,7 +34,7 @@ import { isPublicKeyExist } from '../../../core/util/time-stamp';
   styleUrl: './character-list.component.scss',
 })
 export class CharacterListComponent implements OnInit, OnDestroy {
-  characterDataWrapperResponse: any;
+  characterDataWrapperResponse: CharacterDataWrapperResponse | undefined;
   characters: Character[] = [];
 
   filterCharacters: Character[] = [];

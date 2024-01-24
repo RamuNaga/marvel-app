@@ -6,6 +6,9 @@ import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CharacterDialogComponent } from '../character-dialog/character-dialog.component';
+import { filter } from 'rxjs';
+import { getImageUrl } from '../../../../core/util/image-url';
+import { isPublicKeyExist } from '../../../../core/util/time-stamp';
 
 @Component({
   selector: 'app-character',
@@ -22,10 +25,9 @@ export class CharacterComponent implements OnInit {
   constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.imgurl =
-      this.character?.thumbnail.path +
-      '.' +
-      this.character?.thumbnail.extension;
+    if (this.character) {
+      this.imgurl = getImageUrl(this.character);
+    }
   }
 
   editCourse({ name, thumbnail }: Character) {
@@ -41,12 +43,16 @@ export class CharacterComponent implements OnInit {
 
     const dialogRef = this.dialog.open(CharacterDialogComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe((val) => {
-      if (this.character) {
-        this.character.name = val.name;
-        this.character.thumbnail.path = val.path;
-        this.character.thumbnail.extension = val.extension;
-      }
-    });
+    dialogRef
+      .afterClosed()
+      .pipe(filter((val) => !!val))
+      .subscribe((val) => {
+        if (this.character && !isPublicKeyExist()) {
+          this.character.name = val.name;
+          this.character.thumbnail.path = val.path;
+          this.character.thumbnail.extension = val.extension;
+          this.imgurl = getImageUrl(this.character);
+        }
+      });
   }
 }
