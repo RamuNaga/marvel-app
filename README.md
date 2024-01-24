@@ -17,15 +17,16 @@ I have used only standalone components. You won't see any modules in the app.
 ## Functionality overview
 
 **General functionality:**
-Display a list of all characters in the home page.
-The user can click on a character image and go to a view with more details about the
-record.
-Include the following details of each character:
-a. name, description, image;
-b. a list of stories, events and/or series that the character appears in.
-c. Include a free text search on the main page that filters the characters by name,
-without relying on the Marvel API
-d. user click on edit icon in each character, open model popup to edit the name and image.
+
+- Display a list of all characters in the home page.
+- The user can click on a character image and go to a view with more details about the
+  record.
+- Include the following details of each character:
+  - name, description, image;
+  - a list of stories, events and/or series that the character appears in.
+- Include a free text search on the main page that filters the characters by name,
+  without relying on the Marvel API
+- user click on edit icon in each character, open modal popup to edit the name and image.
 
 **The general page breakdown looks like this:**
 
