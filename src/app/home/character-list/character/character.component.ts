@@ -41,8 +41,12 @@ export class CharacterComponent implements OnInit {
 
     const dialogRef = this.dialog.open(CharacterDialogComponent, dialogConfig);
 
-    dialogRef
-      .afterClosed()
-      .subscribe((val) => console.log('Dialog output:', val));
+    dialogRef.afterClosed().subscribe((val) => {
+      if (this.character) {
+        this.character.name = val.name;
+        this.character.thumbnail.path = val.path;
+        this.character.thumbnail.extension = val.extension;
+      }
+    });
   }
 }
