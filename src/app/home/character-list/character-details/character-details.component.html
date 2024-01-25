@@ -1,96 +1,29 @@
-<!-- //$ | async as character -->
 <ng-container *ngIf="character">
-  <ng-container>
-    <div class="character">
-      <h2>{{ character.name }}</h2>
-      <p>{{ character.description }}</p>
-      <img class="character-thumbnail" [src]="imgUrl" />
-    </div>
-  </ng-container>
+  <div class="character">
+    <h2>{{ character.name }}</h2>
+    <p>{{ character.description }}</p>
+    <img class="character-thumbnail" [src]="imgUrl" />
+  </div>
   <!-- Stories-->
-  <ng-container>
-    <div class="accordian">
-      <mat-accordion>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Stories: {{ character.stories.returned }}
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <div class="character-details-container">
-            @for(story of storyItems; track story.name){
-            <mat-card class="card">
-              <mat-card-content class="card-content">{{
-                story.name
-              }}</mat-card-content>
-            </mat-card>
-            }
-          </div>
-        </mat-expansion-panel>
-      </mat-accordion>
-    </div>
-  </ng-container>
+  <app-details-accordion
+    [title]="'Stories: ' + character.stories.returned"
+    [summaryList]="storyItems"
+  ></app-details-accordion>
   <!-- Series-->
-  <ng-container>
-    <div class="accordian">
-      <mat-accordion>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Series: {{ character.series.returned }}
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <div class="character-details-container">
-            @for(series of seriesItems; track series.name){
-            <mat-card class="card">
-              <mat-card-content>{{ series.name }}</mat-card-content>
-            </mat-card>
-            }
-          </div>
-        </mat-expansion-panel>
-      </mat-accordion>
-    </div>
-  </ng-container>
+  <app-details-accordion
+    [title]="'Series: ' + character.series.returned"
+    [summaryList]="seriesItems"
+  ></app-details-accordion>
+
   <!-- Comics-->
-  <ng-container>
-    <div class="accordian">
-      <mat-accordion>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Comics: {{ character.comics.returned }}
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <div class="character-details-container">
-            @for(comic of comicItems; track comic.name){
-            <mat-card class="card">
-              <mat-card-content>{{ comic.name }}</mat-card-content>
-            </mat-card>
-            }
-          </div>
-        </mat-expansion-panel>
-      </mat-accordion>
-    </div>
-  </ng-container>
+  <app-details-accordion
+    [title]="'Comics: ' + character.comics.returned"
+    [summaryList]="comicItems"
+  ></app-details-accordion>
+
   <!-- Events-->
-  <ng-container>
-    <div class="accordian">
-      <mat-accordion>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Events: {{ character.events.returned }}
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <div class="character-details-container">
-            @for(event of eventItems; track event.name){
-            <mat-card class="card">
-              <mat-card-content>{{ event.name }}</mat-card-content>
-            </mat-card>
-            }
-          </div>
-        </mat-expansion-panel>
-      </mat-accordion>
-    </div>
-  </ng-container>
+  <app-details-accordion
+    [title]="'Events: ' + character.events.returned"
+    [summaryList]="eventItems"
+  ></app-details-accordion>
 </ng-container>

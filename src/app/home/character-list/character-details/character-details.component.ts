@@ -18,11 +18,12 @@ import { Store } from '@ngrx/store';
 import { getCharacterId } from '../data-access/state/character-list/character-list.selector';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { isPublicKeyExist } from '../../../../core/util/time-stamp';
+import { DetailsAccordionComponent } from '../details-accordion/details-accordion.component';
 
 @Component({
   selector: 'app-character-details',
   standalone: true,
-  imports: [NgIf, MatCardModule, MatExpansionModule, NgForOf, AsyncPipe],
+  imports: [NgIf, NgForOf, AsyncPipe, DetailsAccordionComponent],
   templateUrl: './character-details.component.html',
   styleUrl: './character-details.component.scss',
 })

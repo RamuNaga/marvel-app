@@ -1,0 +1,40 @@
+.accordian {
+  width: 100%;
+  margin-bottom: 4px;
+}
+mat-accordion {
+  margin-bottom: 2px;
+}
+mat-panel-title {
+  font-weight: 600;
+}
+mat-expansion-panel {
+  width: 96%;
+  margin-left: 65px;
+  margin-bottom: 4px;
+}
+.summary-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: left;
+}
+
+.card {
+  width: 15%;
+  height: 150px;
+  text-overflow: ellipsis;
+  align-items: center;
+  justify-content: center;
+  background: #63dfb3;
+  margin: 5px;
+}
+.card:hover {
+  background: #e62429;
+  color: white;
+  cursor: pointer;
+}
+.card-content {
+  text-overflow: ellipsis;
+}

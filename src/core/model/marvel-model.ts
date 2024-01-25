@@ -39,9 +39,9 @@ export interface Image {
 }
 export interface Comics {
   available: number;
-  collectionURI?: string;
-  returned?: number;
-  items?: ComicSummary[];
+  collectionURI: string;
+  returned: number;
+  items: ComicSummary;
 }
 export interface ComicSummary {
   resourceURI: string;
@@ -64,7 +64,7 @@ export interface EventList {
   available: number;
   returned: number;
   collectionURI: string;
-  items?: EventSummary;
+  items: EventSummary;
 }
 export interface EventSummary {
   resourceURI: string;
@@ -75,7 +75,7 @@ export interface SeriesList {
   available: number;
   returned: number;
   collectionURI: string;
-  items?: SeriesSummary;
+  items: SeriesSummary;
 }
 
 export interface SeriesSummary {

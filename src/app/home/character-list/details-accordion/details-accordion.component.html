@@ -1,0 +1,20 @@
+<div class="accordian">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ title }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="summary-details">
+        @for(summary of summaryList; track summary.name){
+        <mat-card class="card">
+          <mat-card-content class="card-content">{{
+            summary.name
+          }}</mat-card-content>
+        </mat-card>
+        }
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
