@@ -1,11 +1,5 @@
-@if((isLoading$ | async)){
-<div class="spinner-container">
-  <app-loader></app-loader>
-</div>
-} @else {
 <div class="characterContainer">
   @for (character of characters; track character.name) {
   <app-character [character]="character" />
   }
 </div>
-}

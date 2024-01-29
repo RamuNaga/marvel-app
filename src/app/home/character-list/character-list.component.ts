@@ -16,7 +16,7 @@ import { fetchCharacters } from './data-access/state/character-list/character-li
 import { setLoadingSpinner } from '../../store/shared/shared.action';
 import { isLoading } from '../../store/shared/shared.selector';
 import { LoaderComponent } from '../../../core/components/loader/loader.component';
-import { Observable, Subscription, tap } from 'rxjs';
+import { Observable, Subscription, tap, withLatestFrom } from 'rxjs';
 import { CharacterService } from './data-access/services/character.service';
 import { CharacterDialogComponent } from './character-dialog/character-dialog.component';
 import { isPublicKeyExist } from '../../../core/util/time-stamp';
@@ -37,16 +37,14 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   characterDataWrapperResponse: CharacterDataWrapperResponse | undefined;
   characters: Character[] = [];
 
-  filterCharacters: Character[] = [];
-
   private readonly store = inject(Store<Appstate>);
+  //readonly isLoading$ = this.store.select(isLoading);
+
   private readonly characterService = inject(CharacterService);
 
   private readonly characters$ = this.store
     .select(getCharacters)
     .subscribe((characters) => (this.characters = characters));
-
-  readonly isLoading$ = this.store.select(isLoading);
 
   private $subs: Subscription | undefined;
 
@@ -65,16 +63,26 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.$subs = this.characterService
       .receivedSearchString()
-      .subscribe((searchStr) => {
-        this.characters = this.characters.filter((character) => {
-          return character.name?.toLowerCase().includes(searchStr);
-        });
-        if (searchStr.length == 0 && this.characters.length == 0) {
-          this.store
-            .select(getCharacters)
-            .subscribe((characters) => (this.characters = characters));
-        }
-      });
+      .pipe(
+        withLatestFrom(this.store.select(getCharacters)),
+        tap(([searchStr, characters]) => {
+          if (isPublicKeyExist()) {
+            this.characters = characters;
+          } else {
+            this.getCharactersData();
+          }
+          if (searchStr.length > 0) {
+            this.filterCharacters(searchStr);
+          }
+        })
+      )
+      .subscribe();
+  }
+
+  filterCharacters(searchStr: string) {
+    this.characters = this.characters.filter((character) => {
+      return character.name?.toLowerCase().includes(searchStr);
+    });
   }
 
   ngOnDestroy(): void {

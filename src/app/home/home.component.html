@@ -1,5 +1,10 @@
 <app-marvel-header />
 <div class="homeContainer">
-  <app-filter></app-filter>
-  <router-outlet></router-outlet>
+  <div class="filters">
+    <app-filter></app-filter>
+  </div>
+  <div class="content">
+    <app-loader *ngIf="isLoading$ | async"></app-loader>
+    <router-outlet></router-outlet>
+  </div>
 </div>
