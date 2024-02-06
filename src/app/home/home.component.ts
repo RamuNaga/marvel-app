@@ -17,13 +17,8 @@ import { LoaderComponent } from '../../core/components/loader/loader.component';
     MarvelHeaderComponent,
     FilterComponent,
     RouterModule,
-    AsyncPipe,
-    LoaderComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
-  private readonly store = inject(Store<Appstate>);
-  readonly isLoading$ = this.store.select(isLoading);
-}
+export class HomeComponent {}

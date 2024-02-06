@@ -1,5 +1,9 @@
+@if((isLoading$ | async)){
+<app-loader></app-loader>
+}@else{
 <div class="characterContainer">
   @for (character of characters; track character.name) {
   <app-character [character]="character" />
   }
 </div>
+}

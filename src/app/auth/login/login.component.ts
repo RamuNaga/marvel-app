@@ -3,7 +3,6 @@ import { AuthComponent } from '../auth.component';
 import { CreateUserInput } from '../model/create-user-input';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',

@@ -1,5 +1,5 @@
 import { ApplicationConfig, isDevMode } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withViewTransitions } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideAnimations } from '@angular/platform-browser/animations';
@@ -21,7 +21,7 @@ import { CustomSerializer } from './store/router/custom-serializer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
+    provideRouter(routes, withViewTransitions()),
     provideAnimations(),
     { provide: API_URL, useValue: environment.api_url },
     { provide: PUBLIC_KEY, useValue: environment.public_key },

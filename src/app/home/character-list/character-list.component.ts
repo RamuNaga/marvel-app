@@ -38,7 +38,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   characters: Character[] = [];
 
   private readonly store = inject(Store<Appstate>);
-  //readonly isLoading$ = this.store.select(isLoading);
+  readonly isLoading$ = this.store.select(isLoading);
 
   private readonly characterService = inject(CharacterService);
 
@@ -86,6 +86,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    console.log('ngOnDestroy calling');
     this.$subs?.unsubscribe();
     this.characters$.unsubscribe();
     this.count$.unsubscribe();
