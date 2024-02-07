@@ -1,10 +1,10 @@
-import { Character } from '../model/marvel-model';
+import { Character, Comic } from '../model/marvel-model';
 
-export const getImageUrl = (character: Character) => {
+export const getImageUrl = (image: Character | Comic) => {
   const imgurl =
-    character?.thumbnail.path +
+    image?.thumbnail.path +
     '/standard_xlarge' +
     '.' +
-    character?.thumbnail.extension;
+    image?.thumbnail.extension;
   return imgurl;
 };

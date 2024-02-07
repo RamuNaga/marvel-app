@@ -1,0 +1,17 @@
+<mat-card *ngIf="comic">
+  <mat-card-content>
+    <img
+      [routerLink]="['character', comic.id]"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      mat-card-image
+      class="character-img"
+      [src]="imgurl"
+      alt="angular log"
+    />
+    <p>{{ comic.title }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <mat-icon matToolTip="edit" (click)="editComic(comic)">edit</mat-icon>
+  </mat-card-actions>
+</mat-card>

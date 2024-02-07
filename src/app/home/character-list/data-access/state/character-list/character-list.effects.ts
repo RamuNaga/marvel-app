@@ -22,37 +22,42 @@ export class CharactersEffects {
   private readonly actions$ = inject(Actions);
   private readonly store = inject(Store<Appstate>);
 
-  fetchCharacters$ = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(fetchCharacters),
-      switchMap((action) => {
-        return this.apiService
-          .get<CharacterDataWrapperResponse>('/v1/public/characters')
-          .pipe(
-            map((result) => {
-              this.store.dispatch(setEtag({ etag: result.etag }));
-              this.store.dispatch(setLoadingSpinner({ status: false }));
-              return fetchCharactersSuccess({
-                characters: result.data.results,
-                count: result.data.count,
-              });
-            }),
-            catchError((errResp) => {
-              this.store.dispatch(setLoadingSpinner({ status: false }));
-              let errorMessage = '';
-              if (errResp && errResp.error && errResp.error.message) {
-                this.store.dispatch(setErrorMessage({ message: errorMessage }));
-                this.store.dispatch(
-                  fetchCharactersSuccess({
-                    characters: charactersInitialState.characters,
-                    count: 0,
-                  })
-                );
-              }
-              return EMPTY;
-            })
-          );
-      })
-    );
-  });
+  fetchCharacters$ = createEffect(
+    () => {
+      return this.actions$.pipe(
+        ofType(fetchCharacters),
+        switchMap((action) => {
+          return this.apiService
+            .get<CharacterDataWrapperResponse>('/v1/public/characters')
+            .pipe(
+              map((result) => {
+                this.store.dispatch(setEtag({ etag: result.etag }));
+                this.store.dispatch(setLoadingSpinner({ status: false }));
+                return fetchCharactersSuccess({
+                  characters: result.data.results,
+                  count: result.data.count,
+                });
+              }),
+              catchError((errResp) => {
+                this.store.dispatch(setLoadingSpinner({ status: false }));
+                let errorMessage = '';
+                if (errResp && errResp.error && errResp.error.message) {
+                  this.store.dispatch(
+                    setErrorMessage({ message: errorMessage })
+                  );
+                  this.store.dispatch(
+                    fetchCharactersSuccess({
+                      characters: charactersInitialState.characters,
+                      count: 0,
+                    })
+                  );
+                }
+                return EMPTY;
+              })
+            );
+        })
+      );
+    },
+    { functional: true }
+  );
 }

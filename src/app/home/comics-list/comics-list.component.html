@@ -1,0 +1,9 @@
+@if((isLoading$ | async)){
+<app-loader></app-loader>
+}@else{
+<div class="contentContainer">
+  @for (comic of comics$ | async; track comic.id) {
+  <app-comic [comic]="comic" />
+  }
+</div>
+}

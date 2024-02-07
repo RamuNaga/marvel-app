@@ -1,9 +1,9 @@
-.characterContainer {
+.contentContainer {
   padding: 10px;
-  margin-left: 1rem !important;
+  margin-left: 2rem !important;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }

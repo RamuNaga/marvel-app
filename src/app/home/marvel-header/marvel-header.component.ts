@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import {
   Component,
+  Input,
   OnChanges,
   OnInit,
   SimpleChanges,
@@ -42,6 +43,7 @@ import { RouterLink } from '@angular/router';
 })
 export class MarvelHeaderComponent implements OnInit {
   searchStr = '';
+  @Input() searchTitle!: string;
   searchForm = this.fb.nonNullable.group({
     searchvalue: '',
   });

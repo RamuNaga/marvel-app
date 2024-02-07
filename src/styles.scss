@@ -56,15 +56,13 @@ mat-card:hover {
     height: 100%;
     display: flex;
   }
-  .filters {
+  .nav-list {
     width: 40%;
     padding: 10px;
     margin: 5px;
     display: none !important;
   }
-  .filters > span {
-    font-size: 10px;
-  }
+
   .title {
     font-size: 18px !important;
   }

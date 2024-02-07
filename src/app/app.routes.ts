@@ -6,8 +6,14 @@ import { HomeComponent } from './home/home.component';
 import { CharacterDetailsComponent } from './home/character-list/character-details/character-details.component';
 import { CharacterListComponent } from './home/character-list/character-list.component';
 import { characterResolver } from './home/character-list/data-access/resolvers/character.resolver';
+import { ComicsListComponent } from './home/comics-list/comics-list.component';
 
 export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/characters',
+    pathMatch: 'full',
+  },
   {
     path: 'signup',
     component: SignUpComponent,
@@ -17,24 +23,20 @@ export const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: '',
-    redirectTo: '/characters',
-    pathMatch: 'full',
+    path: 'comics',
+    loadChildren: () =>
+      import('../app/home/comics-list/comics-routes').then(
+        (comics) => comics.COMICS_ROUTES
+      ),
   },
   {
-    path: ':characterUrl',
-    component: HomeComponent,
-    children: [
-      {
-        path: '',
-        component: CharacterListComponent,
-      },
-      {
-        path: 'character/:id',
-        component: CharacterDetailsComponent,
-      },
-    ],
+    path: 'characters',
+    loadChildren: () =>
+      import('../app/home/character-list/character-routes').then(
+        (character) => character.CHARACTER_ROUTES
+      ),
   },
+
   {
     path: '**',
     redirectTo: '/',

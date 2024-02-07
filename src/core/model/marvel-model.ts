@@ -82,3 +82,92 @@ export interface SeriesSummary {
   resourceURI: string;
   name: string;
 }
+
+export interface TextObject {
+  type: string;
+  language: string;
+  text: string;
+}
+export interface Variant {
+  resourceURI: string;
+  name: string;
+}
+
+export interface Collection {
+  resourceURI: string;
+  name: string;
+}
+export interface collectedIssue {
+  resourceURI: string;
+  name: string;
+}
+export interface ComicDate {
+  type: string;
+  date: string;
+}
+export interface ComicPrice {
+  type: string;
+  price: number;
+}
+
+export interface Item {
+  resourceURI: string;
+  name: string;
+  role?: string;
+}
+
+export interface ComicCreator {
+  available: number;
+  returned: number;
+  collectionURI: string;
+  items: Item[];
+}
+export interface ComicCharacter {
+  available: number;
+  returned: number;
+  collectionURI: string;
+  items: Item[];
+}
+export interface ComicStories {
+  available: number;
+  returned: number;
+  collectionURI: string;
+  items: Item[];
+}
+export interface ComicEvents {
+  available: number;
+  returned: number;
+  collectionURI: string;
+  items: Item[];
+}
+export interface Comic {
+  id: number;
+  digitalId: number;
+  title: string;
+  issueNumber: number;
+  variantDescription: string;
+  description: string;
+  modified: string;
+  isbn: string;
+  upc: string;
+  diamondCode: string;
+  ean: string;
+  issn: string;
+  format: string;
+  pageCount: number;
+  textObjects: TextObject[];
+  resourceURI: string;
+  urls: Url[];
+  series: SeriesSummary;
+  variants: Variant[];
+  collections: Collection[];
+  collectedIssues: collectedIssue[];
+  dates: ComicDate[];
+  prices: ComicPrice[];
+  thumbnail: Image;
+  images: Image[];
+  creators: ComicCreator;
+  characters: ComicCharacter;
+  stories: ComicStories;
+  events: ComicEvents;
+}

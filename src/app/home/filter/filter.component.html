@@ -1,3 +1,29 @@
-<div class="filters">
-  <span className="title">Filter Characters</span>
+<div class="nav-list">
+  <a
+    class="nav-item"
+    mat-button
+    routerLink="/characters"
+    routerLinkActive="nav-item-active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <span>Characters</span>
+  </a>
+
+  <a
+    class="nav-item"
+    mat-button
+    routerLink="/comics"
+    routerLinkActive="nav-item-active"
+  >
+    <span>Comics</span>
+  </a>
+
+  <a
+    mat-button
+    class="nav-item"
+    routerLink="/login"
+    routerLinkActive="nav-item-active"
+  >
+    <span>Login</span>
+  </a>
 </div>

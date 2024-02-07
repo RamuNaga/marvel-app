@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Character } from '../../../../core/model/marvel-model';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';

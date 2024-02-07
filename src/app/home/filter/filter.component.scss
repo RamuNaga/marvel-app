@@ -1,4 +1,4 @@
-.filters {
+.nav-list {
   color: white;
   padding: 25px;
   display: flex;
@@ -8,11 +8,15 @@
   margin-top: 10px;
   margin-left: 2px;
   background-color: #003839;
+  gap: 5px;
 }
 
-.filters > span {
-  padding-bottom: 20px;
+.nav-item {
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
 }
-.title {
-  font-size: 30px;
+
+.nav-item.nav-item-active {
+  text-decoration: underline;
 }
