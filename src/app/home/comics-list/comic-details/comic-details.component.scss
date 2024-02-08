@@ -1,0 +1,20 @@
+:host {
+  height: 100%;
+}
+.character {
+  padding: 10px;
+  margin-left: 60px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+.character-thumbnail {
+  width: 250px;
+  height: 250px;
+}
+
+.header-title {
+  margin-left: 70px;
+}

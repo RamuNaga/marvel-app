@@ -18,10 +18,13 @@ import { appReducer } from './store/app.state';
 import { CharactersEffects } from './home/character-list/data-access/state/character-list/character-list.effects';
 import { provideHttpClient } from '@angular/common/http';
 import { CustomSerializer } from './store/router/custom-serializer';
+import { provideComponentStore } from '@ngrx/component-store';
+import { ComicListStoreService } from './home/comics-list/data-access/comic-list-store';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes, withViewTransitions()),
+    provideComponentStore(ComicListStoreService),
     provideAnimations(),
     { provide: API_URL, useValue: environment.api_url },
     { provide: PUBLIC_KEY, useValue: environment.public_key },

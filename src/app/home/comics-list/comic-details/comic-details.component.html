@@ -1,0 +1,9 @@
+<ng-container *ngIf="comic$ | async as comic">
+  <ng-container *ngIf="comic">
+    <div class="character">
+      <h2>{{ comic.title }}</h2>
+      <p>{{ comic.description }}</p>
+      <!-- <img class="character-thumbnail" [src]="imgUrl" /> -->
+    </div>
+  </ng-container>
+</ng-container>

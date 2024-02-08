@@ -86,7 +86,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('ngOnDestroy calling');
+    //console.log('ngOnDestroy calling');
     this.$subs?.unsubscribe();
     this.characters$.unsubscribe();
     this.count$.unsubscribe();
