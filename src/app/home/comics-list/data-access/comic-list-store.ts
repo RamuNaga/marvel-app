@@ -34,6 +34,10 @@ export class ComicListStoreService
   // SELECTORS
   comics$ = this.select((store) => store.comics);
 
+  selectComic(comicId: number) {
+    return this.select((state) => state.comics.find((c) => c.id == comicId));
+  }
+
   // EFFECTS
   readonly getComics = this.effect<void>(
     pipe(
@@ -41,7 +45,6 @@ export class ComicListStoreService
         this.apiService.get<ComicDataWrapperResponse>('/v1/public/comics').pipe(
           tapResponse(
             (response) => {
-              console.log('response.data.results', response.data.results);
               this.patchState({ comics: response.data.results });
             },
             (error) => {
@@ -56,12 +59,14 @@ export class ComicListStoreService
   readonly fetchComicById = this.effect<number>((comicId$) => {
     return comicId$.pipe(
       switchMap((id) => {
-        console.log('comicID', id);
         return this.apiService
-          .get<ComicDataWrapperResponse>('/v1/public/comics/' + `${id}`)
+          .get<ComicDataWrapperResponse>(`/v1/public/comics/${id}`)
           .pipe(
             tapResponse(
-              (response) => this.addComic(response.data.results[0]),
+              (response) => {
+                console.log;
+                //this.addComic(response.data.results[0]);
+              },
               (error) => {
                 console.error('error getting tags: ', error);
               }
@@ -74,8 +79,4 @@ export class ComicListStoreService
   readonly addComic = this.updater((state, comic: Comic) => ({
     comics: [...state.comics, comic],
   }));
-
-  selectComic(comicId: number) {
-    return this.select((state) => state.comics.find((c) => c.id == comicId));
-  }
 }
