@@ -36,7 +36,6 @@ export const routes: Routes = [
         (character) => character.CHARACTER_ROUTES
       ),
   },
-
   {
     path: '**',
     redirectTo: '/',

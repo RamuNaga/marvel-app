@@ -35,7 +35,7 @@ export class CharacterDetailsComponent implements OnInit {
   characterDataWrapperResponse: any;
   character: Character | undefined;
 
-  id: number = 1009148;
+  id!: number;
   imgUrl: string | undefined;
   storyItems: StorySummary[] = [];
   comicItems: ComicSummary[] = [];
@@ -57,7 +57,7 @@ export class CharacterDetailsComponent implements OnInit {
       tap((character) => {
         this.imgUrl = getImageUrl(character as Character);
         this.character = character;
-        this.eventItems = character?.comics.items as unknown as ComicSummary[];
+        this.eventItems = character?.events.items as unknown as EventSummary[];
         this.storyItems = character?.stories
           ?.items as unknown as StorySummary[];
         this.comicItems = character?.comics.items as unknown as ComicSummary[];

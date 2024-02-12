@@ -8,6 +8,7 @@ import { Appstate } from '../store/app.state';
 import { isLoading } from '../store/shared/shared.selector';
 import { AsyncPipe } from '@angular/common';
 import { LoaderComponent } from '../../core/components/loader/loader.component';
+import { BreadcumbComponent } from '../../core/components/breadcumb/breadcumb.component';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ import { LoaderComponent } from '../../core/components/loader/loader.component';
     CharacterListComponent,
     MarvelHeaderComponent,
     FilterComponent,
+    BreadcumbComponent,
     RouterModule,
   ],
   templateUrl: './home.component.html',

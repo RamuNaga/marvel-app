@@ -25,7 +25,7 @@ export class ComicDetailsComponent implements OnInit {
       .pipe(switchMap((params) => (this.id = params['id'])))
       .subscribe();
 
-    this.comicListStoreService.fetchComicById(this.id);
+    //this.comicListStoreService.fetchComicById(this.id);
 
     this.comic$ = this.comicListStoreService.selectComic(this.id);
   }

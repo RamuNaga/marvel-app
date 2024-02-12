@@ -7,6 +7,7 @@ export const COMICS_ROUTES: Routes = [
   {
     path: '',
     component: HomeComponent,
+    data: { breadcrumb: 'Comics' },
     children: [
       {
         path: '',
@@ -15,6 +16,7 @@ export const COMICS_ROUTES: Routes = [
       {
         path: 'comic/:id',
         component: ComicDetailsComponent,
+        data: { breadcrumb: 'comic' },
       },
     ],
   },
