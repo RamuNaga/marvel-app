@@ -30,6 +30,7 @@ export class AuthComponent {
   password = new FormControl('', [Validators.required]);
 
   getEmailErrorMessage() {
+    console.log('Adding a new line');
     if (this.email.hasError('required')) {
       return 'You must enter a value';
     }
